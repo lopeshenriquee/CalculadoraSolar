@@ -11,8 +11,7 @@ public class JHistorico extends javax.swing.JFrame {
 
         getContentPane().setBackground(new Color(176, 220, 194));
         btnPesquisar.setBackground(new Color(93, 196, 96));
-        btnVoltar.setBackground(new Color(93, 196, 96));
-        btnSair.setBackground(new Color(93, 196, 96));
+        btnVoltar.setBackground(new Color(93, 196, 96)); 
 
         Utilitarios.manipularImgLogo(lblImgLogo);
         Utilitarios.mostrandoData(lblData);
@@ -27,7 +26,6 @@ public class JHistorico extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblHistorico = new javax.swing.JTable();
         lblImgLogo = new javax.swing.JLabel();
-        btnSair = new javax.swing.JButton();
         btnVoltar = new javax.swing.JButton();
         lblConsumo = new javax.swing.JLabel();
         txtConsumo = new javax.swing.JTextField();
@@ -75,19 +73,6 @@ public class JHistorico extends javax.swing.JFrame {
 
         lblImgLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblImgLogo.setText("Logo");
-
-        btnSair.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.default.background"));
-        btnSair.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btnSair.setForeground(new java.awt.Color(255, 255, 255));
-        btnSair.setText("Sair");
-        btnSair.setAlignmentY(0.0F);
-        btnSair.setBorder(null);
-        btnSair.setBorderPainted(false);
-        btnSair.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSairActionPerformed(evt);
-            }
-        });
 
         btnVoltar.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.default.background"));
         btnVoltar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -141,9 +126,7 @@ public class JHistorico extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(lblImgLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 156, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -184,18 +167,12 @@ public class JHistorico extends javax.swing.JFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(lblImgLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_btnSairActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         this.dispose();
@@ -216,7 +193,6 @@ public class JHistorico extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnPesquisar;
-    public javax.swing.JButton btnSair;
     public javax.swing.JButton btnVoltar;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblConsumo;
