@@ -1,6 +1,8 @@
 package com.lopes.calculadorasolar.CONTROLLER;
 
 import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.PreparedStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -17,15 +19,17 @@ public class BD {
     static {
         try {
             Properties props = new Properties();
-            FileInputStream fis = new FileInputStream("config.properties");
-            props.load(fis);
+            InputStream input = BD.class.getClassLoader().getResourceAsStream("config.properties");
+
+            props.load(input);
             
-            URL = props.getProperty("db_url");
-            USUARIO = props.getProperty("db_usuario");
-            SENHA = props.getProperty("db_senha");
-                    
-        } catch (Exception e) {
+            URL = props.getProperty("db.url");
+            USUARIO = props.getProperty("db.usuario");
+            SENHA = props.getProperty("db.senha");
+
+        } catch (IOException e) {
             e.printStackTrace();
+            System.out.println("Erro ao carregar o arquivo de configuração.");
         }
     }
 
@@ -49,7 +53,7 @@ public class BD {
             stmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
+            System.out.println("Erro ao salvar os dados no banco.");
         }
     }
-
 }

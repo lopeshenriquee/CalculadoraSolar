@@ -289,7 +289,7 @@ public class JMenu extends javax.swing.JFrame {
 
             double economia = Simulador.calcularEconomia(consumo, tarifa, potencia, quantidade, incentivo);
             txtResultado.setText(String.format("%.2f", economia));
-            
+
             BD.salvarSimulacao(consumo, tarifa, potencia, quantidade, incentivo, economia);
          
         } catch (NumberFormatException ex) {
