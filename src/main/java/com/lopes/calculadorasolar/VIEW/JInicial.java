@@ -30,7 +30,6 @@ public class JInicial extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Versão 1.01");
         setBackground(java.awt.SystemColor.activeCaption);
-        setMaximumSize(null);
         setName("FrameInicial"); // NOI18N
 
         lblTitulo.setFont(new java.awt.Font("Segoe UI", 3, 36)); // NOI18N

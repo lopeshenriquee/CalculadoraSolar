@@ -260,7 +260,7 @@ public class JMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
-        this.dispose();
+        System.exit(0); 
     }//GEN-LAST:event_btnSairActionPerformed
 
     private void lblConfiguracoesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblConfiguracoesMouseClicked
@@ -306,8 +306,8 @@ public class JMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCalcular;
-    private javax.swing.JButton btnHistorico;
+    public javax.swing.JButton btnCalcular;
+    public javax.swing.JButton btnHistorico;
     public javax.swing.JButton btnSair;
     private javax.swing.JLabel lblConfiguracoes;
     private javax.swing.JLabel lblConsumo;
