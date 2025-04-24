@@ -1,7 +1,9 @@
 package com.lopes.calculadorasolar.VIEW;
 
+import com.lopes.calculadorasolar.CONTROLLER.BD;
 import com.lopes.calculadorasolar.CONTROLLER.Utilitarios;
 import java.awt.Color;
+import javax.swing.table.DefaultTableModel;
 
 public class JHistorico extends javax.swing.JFrame {
 
@@ -11,10 +13,11 @@ public class JHistorico extends javax.swing.JFrame {
 
         getContentPane().setBackground(new Color(176, 220, 194));
         btnPesquisar.setBackground(new Color(93, 196, 96));
-        btnVoltar.setBackground(new Color(93, 196, 96)); 
+        btnVoltar.setBackground(new Color(93, 196, 96));
 
         Utilitarios.manipularImgLogo(lblImgLogo);
         Utilitarios.mostrandoData(lblData);
+
     }
 
     @SuppressWarnings("unchecked")
@@ -38,6 +41,11 @@ public class JHistorico extends javax.swing.JFrame {
         setMaximumSize(null);
         setMinimumSize(new java.awt.Dimension(1040, 600));
         setPreferredSize(new java.awt.Dimension(1040, 600));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         lblData.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblData.setText("Data");
@@ -51,24 +59,15 @@ public class JHistorico extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Data", "Economia", "Consumo Mensal", "Tarifa", "Qtd Painéis", "Incentivo"
+                "Data", "Economia (R$)", "Consumo (kWh)", "Tarifa (kWh)", "Quantidade de Painéis", "Potência (kWh)", "Incentivo (%)"
             }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Integer.class, java.lang.Double.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
+        ));
+        tblHistorico.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        tblHistorico.setRowHeight(25);
+        tblHistorico.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        tblHistorico.setShowGrid(true);
+        tblHistorico.setShowHorizontalLines(true);
+        tblHistorico.setShowVerticalLines(true);
         jScrollPane1.setViewportView(tblHistorico);
 
         lblImgLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -182,13 +181,17 @@ public class JHistorico extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnPesquisarActionPerformed
 
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        DefaultTableModel modelo = (DefaultTableModel) tblHistorico.getModel();
+        BD.listarConsultas(modelo);
+    }//GEN-LAST:event_formWindowOpened
+
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new JHistorico().setVisible(true);
             }
         });
-        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -200,7 +203,7 @@ public class JHistorico extends javax.swing.JFrame {
     private javax.swing.JLabel lblData;
     private javax.swing.JLabel lblImgLogo;
     private javax.swing.JLabel lblTitulo;
-    private javax.swing.JTable tblHistorico;
+    public javax.swing.JTable tblHistorico;
     private javax.swing.JTextField txtConsumo;
     private javax.swing.JTextField txtConsumo1;
     // End of variables declaration//GEN-END:variables
