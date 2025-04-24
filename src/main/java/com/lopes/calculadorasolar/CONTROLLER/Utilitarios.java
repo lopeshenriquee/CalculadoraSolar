@@ -22,13 +22,13 @@ public class Utilitarios {
         Image img = icon.getImage().getScaledInstance(label.getWidth(), label.getHeight(), 1);
         label.setIcon(new ImageIcon(img));
     }
-    
-    public static void manipularImgConfiguracoes (JLabel label){
+
+    public static void manipularImgConfiguracoes(JLabel label) {
         ImageIcon icon = new ImageIcon("src/main/java/com/lopes/calculadorasolar/view/img/settings.png");
         Image imagemRedimensionada = icon.getImage().getScaledInstance(label.getWidth(), label.getHeight(), 1);
         label.setIcon(new ImageIcon(imagemRedimensionada));
     }
-    
+
     public static LocalDate pegarDataSQL() {
         return LocalDate.now(); // Retorna a data atual como LocalDate
     }
