@@ -66,8 +66,6 @@ public class JHistorico extends javax.swing.JFrame {
         tblHistorico.setRowHeight(25);
         tblHistorico.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         tblHistorico.setShowGrid(true);
-        tblHistorico.setShowHorizontalLines(true);
-        tblHistorico.setShowVerticalLines(true);
         jScrollPane1.setViewportView(tblHistorico);
 
         lblImgLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);

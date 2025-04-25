@@ -62,7 +62,9 @@ public class BD {
         String quuery = "SELECT * FROM tb_registros ORDER BY data_atual DESC LIMIT 10";
 
         try (
-                Connection conn = DriverManager.getConnection(URL, USUARIO, SENHA); PreparedStatement stmt = conn.prepareStatement(quuery); ResultSet rs = stmt.executeQuery()) {
+                Connection conn = DriverManager.getConnection(URL, USUARIO, SENHA);
+                PreparedStatement stmt = conn.prepareStatement(quuery); 
+                ResultSet rs = stmt.executeQuery()) {
 
             while (rs.next()) {
                 Date data_atual = rs.getDate("data_atual");

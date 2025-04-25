@@ -24,8 +24,8 @@ public class Utilitarios {
     }
 
     public static void manipularImgConfiguracoes(JLabel label) {
-        ImageIcon icon = new ImageIcon("src/main/java/com/lopes/calculadorasolar/view/img/settings.png");
-        Image imagemRedimensionada = icon.getImage().getScaledInstance(label.getWidth(), label.getHeight(), 1);
+        ImageIcon icon = new ImageIcon(Utilitarios.class.getResource("/settings-icon.png"));
+        Image imagemRedimensionada = icon.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
         label.setIcon(new ImageIcon(imagemRedimensionada));
     }
 
