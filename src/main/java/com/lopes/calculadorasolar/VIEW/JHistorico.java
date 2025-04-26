@@ -36,7 +36,7 @@ public class JHistorico extends javax.swing.JFrame {
         lblConsumo1 = new javax.swing.JLabel();
         btnPesquisar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Calculadora Solar");
         setMaximumSize(null);
         setMinimumSize(new java.awt.Dimension(1040, 600));

@@ -49,7 +49,7 @@ public class JMenu extends javax.swing.JFrame {
         txtIncentivo = new javax.swing.JTextField();
         lblConfiguracoes = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Calculadora Solar");
         setMinimumSize(new java.awt.Dimension(1040, 600));
 
