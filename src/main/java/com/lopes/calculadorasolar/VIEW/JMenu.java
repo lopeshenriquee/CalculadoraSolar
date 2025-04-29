@@ -4,19 +4,34 @@ import com.lopes.calculadorasolar.CONTROLLER.BD;
 import com.lopes.calculadorasolar.CONTROLLER.Utilitarios;
 import com.lopes.calculadorasolar.MODEL.Simulador;
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.SwingUtilities;
 
 public class JMenu extends javax.swing.JFrame {
 
-    private JHistorico historico;
+    private JMenu telaMenu;
+    private JConfiguracoes telaConfiguracao;
 
     public JMenu() {
+        telaMenu = this;
         initComponents();
-        this.setLocationRelativeTo(null);
 
+        telaConfiguracao = new JConfiguracoes(this);
+        telaConfiguracao.setTelaMenu(this);
+
+        this.setLocationRelativeTo(null);
         getContentPane().setBackground(new Color(176, 220, 194));
         btnCalcular.setBackground(new Color(93, 196, 96));
         btnHistorico.setBackground(new Color(93, 196, 96));
         btnSair.setBackground(new Color(93, 196, 96));
+
+        //AJUSTAR
+//        this.addWindowListener(new java.awt.event.WindowAdapter() {
+//            public void windowActivated(java.awt.event.WindowEvent e) {
+//                atualizarTarifaMenu(); // Atualiza a tarifa quando a janela for ativada
+//            }
+//        });
 
         Utilitarios.manipularImgLogo(lblImgLogo);
         Utilitarios.manipularImgMenu(lblImgMenu);
@@ -259,13 +274,13 @@ public class JMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
-        System.exit(0); 
+        System.exit(0);
     }//GEN-LAST:event_btnSairActionPerformed
 
     private void lblConfiguracoesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblConfiguracoesMouseClicked
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JConfiguracoes().setVisible(true);
+                new JConfiguracoes(telaMenu).setVisible(true);
             }
         });
     }//GEN-LAST:event_lblConfiguracoesMouseClicked
@@ -277,6 +292,31 @@ public class JMenu extends javax.swing.JFrame {
             }
         });
     }//GEN-LAST:event_btnHistoricoActionPerformed
+
+    //AJUSTAR
+    protected void atualizarTarifaMenu() {
+        SwingUtilities.invokeLater(() -> {
+            txtTarifa.revalidate();
+            txtTarifa.repaint();
+            System.out.println("Revalidando tarifa");
+        });
+        // Verificar se a região está sendo capturada corretamente
+        String regiao = telaConfiguracao.getRegiaoSelecionada();
+        System.out.println("Região selecionada: " + regiao); // Debug
+
+        Double novaTarifa = Utilitarios.devolverTarifa(regiao);
+        System.out.println("Tarifa retornada: " + novaTarifa); // Debug
+
+        if (novaTarifa != null) {
+            txtTarifa.setText(String.format("%.2f", novaTarifa));
+            System.out.println("Tarifa preenchida: " + novaTarifa); // Debug
+
+        } else {
+            txtTarifa.setText(String.format("%.2f", 0.00));
+            System.out.println("Tarifa não encontrada, preenchendo com nada"); // Debug
+        }
+
+    }
 
     private void btnCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularActionPerformed
         try {
@@ -290,16 +330,31 @@ public class JMenu extends javax.swing.JFrame {
             txtResultado.setText(String.format("%.2f", economia));
 
             BD.salvarSimulacao(consumo, tarifa, potencia, quantidade, incentivo, economia);
-         
+
         } catch (NumberFormatException ex) {
             txtResultado.setText("Erro: Verifique os valores informados.");
         }
     }//GEN-LAST:event_btnCalcularActionPerformed
 
     public static void main(String args[]) {
+        try {
+            // Tente configurar o Look and Feel
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (Exception ex) {
+            java.util.logging.Logger.getLogger(JConfiguracoes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+
+        // Criando e passando a instância de JMenu
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JMenu().setVisible(true);
+                // Substitua 'telaMenu' pela sua instância real de JMenu
+                JMenu telaMenu = new JMenu(); // Exemplo de criação de JMenu
+                new JConfiguracoes(telaMenu).setVisible(true); // Passando a referência de JMenu
             }
         });
     }
@@ -324,6 +379,6 @@ public class JMenu extends javax.swing.JFrame {
     private javax.swing.JTextField txtPotencia;
     private javax.swing.JTextField txtQtd;
     private javax.swing.JTextField txtResultado;
-    private javax.swing.JTextField txtTarifa;
+    protected javax.swing.JTextField txtTarifa;
     // End of variables declaration//GEN-END:variables
 }

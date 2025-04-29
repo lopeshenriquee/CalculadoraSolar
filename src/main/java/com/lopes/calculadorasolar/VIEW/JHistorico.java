@@ -15,6 +15,12 @@ public class JHistorico extends javax.swing.JFrame {
         btnPesquisar.setBackground(new Color(93, 196, 96));
         btnVoltar.setBackground(new Color(93, 196, 96));
 
+        btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisarActionPerformed(evt);
+            }
+        });
+
         Utilitarios.manipularImgLogo(lblImgLogo);
         Utilitarios.mostrandoData(lblData);
 
@@ -176,10 +182,24 @@ public class JHistorico extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
-        // TODO add your handling code here:
+        DefaultTableModel modelo = (DefaultTableModel) tblHistorico.getModel();
+        modelo.setRowCount(0);
+        System.out.println("Chamando listarConsultas...");
+        BD.listarConsultas(modelo);
     }//GEN-LAST:event_btnPesquisarActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("Data");
+        model.addColumn("Economia(R$)");
+        model.addColumn("Consumo Mensal (kWh)");
+        model.addColumn("Tarifa (R$)");
+        model.addColumn("Quantidade de Painéis (kW)");
+        model.addColumn("Potência do Painel");
+        model.addColumn("Incentivo");
+
+        tblHistorico.setModel(model);
+
         DefaultTableModel modelo = (DefaultTableModel) tblHistorico.getModel();
         BD.listarConsultas(modelo);
     }//GEN-LAST:event_formWindowOpened

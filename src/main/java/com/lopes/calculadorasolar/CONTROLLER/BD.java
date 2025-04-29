@@ -9,6 +9,7 @@ import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Properties;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 public class BD {
@@ -62,10 +63,10 @@ public class BD {
         String quuery = "SELECT * FROM tb_registros ORDER BY data_atual DESC LIMIT 10";
 
         try (
-                Connection conn = DriverManager.getConnection(URL, USUARIO, SENHA);
-                PreparedStatement stmt = conn.prepareStatement(quuery); 
-                ResultSet rs = stmt.executeQuery()) {
+                Connection conn = DriverManager.getConnection(URL, USUARIO, SENHA); PreparedStatement stmt = conn.prepareStatement(quuery); ResultSet rs = stmt.executeQuery()) {
 
+            modelo.setRowCount(0);
+            
             while (rs.next()) {
                 Date data_atual = rs.getDate("data_atual");
                 double consumo_mensal = rs.getDouble("consumo_mensal");
@@ -81,7 +82,7 @@ public class BD {
                     tarifa_kwh,
                     qtd_paineis,
                     potencia_painel,
-                    incentivo 
+                    incentivo
                 });
 
             }
