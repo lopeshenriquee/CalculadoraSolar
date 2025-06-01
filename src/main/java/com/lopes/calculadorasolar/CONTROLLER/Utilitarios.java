@@ -52,12 +52,11 @@ public class Utilitarios {
         tarifas.put("Sul", 0.55);
 
         System.out.println("Procurando tarifa para: " + regiaoSelecionada); // Debug
+        System.out.println(tarifas);
 
         if (regiaoSelecionada != null && tarifas.containsKey(regiaoSelecionada)) {
             Double tarifa = tarifas.get(regiaoSelecionada);
             System.out.println("Tarifa encontrada: " + tarifa); // Debug
-            
-            System.out.println("tarifa");
             return tarifa;
         } else {
             System.out.println("Tarifa nula: " + regiaoSelecionada); // Debug

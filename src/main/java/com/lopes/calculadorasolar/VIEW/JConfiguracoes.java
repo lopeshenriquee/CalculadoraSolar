@@ -56,7 +56,6 @@ public class JConfiguracoes extends javax.swing.JFrame {
         txtTarifa = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(460, 400));
         setMinimumSize(new java.awt.Dimension(460, 400));
 
         lblData.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N

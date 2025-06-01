@@ -36,10 +36,6 @@ public class JHistorico extends javax.swing.JFrame {
         tblHistorico = new javax.swing.JTable();
         lblImgLogo = new javax.swing.JLabel();
         btnVoltar = new javax.swing.JButton();
-        lblConsumo = new javax.swing.JLabel();
-        txtConsumo = new javax.swing.JTextField();
-        txtConsumo1 = new javax.swing.JTextField();
-        lblConsumo1 = new javax.swing.JLabel();
         btnPesquisar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -90,16 +86,6 @@ public class JHistorico extends javax.swing.JFrame {
             }
         });
 
-        lblConsumo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblConsumo.setText("-");
-
-        txtConsumo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-
-        txtConsumo1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-
-        lblConsumo1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblConsumo1.setText("Período:");
-
         btnPesquisar.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.default.background"));
         btnPesquisar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnPesquisar.setForeground(new java.awt.Color(255, 255, 255));
@@ -132,18 +118,9 @@ public class JHistorico extends javax.swing.JFrame {
                         .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 156, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblConsumo1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtConsumo, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblConsumo)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtConsumo1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 750, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 750, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnPesquisar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(134, 134, 134))))
         );
         layout.setVerticalGroup(
@@ -157,13 +134,7 @@ public class JHistorico extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(lblTitulo)))
                 .addGap(40, 40, 40)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnPesquisar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtConsumo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtConsumo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblConsumo)
-                        .addComponent(lblConsumo1)))
+                .addComponent(btnPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
@@ -216,13 +187,9 @@ public class JHistorico extends javax.swing.JFrame {
     public javax.swing.JButton btnPesquisar;
     public javax.swing.JButton btnVoltar;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblConsumo;
-    private javax.swing.JLabel lblConsumo1;
     private javax.swing.JLabel lblData;
     private javax.swing.JLabel lblImgLogo;
     private javax.swing.JLabel lblTitulo;
     public javax.swing.JTable tblHistorico;
-    private javax.swing.JTextField txtConsumo;
-    private javax.swing.JTextField txtConsumo1;
     // End of variables declaration//GEN-END:variables
 }
