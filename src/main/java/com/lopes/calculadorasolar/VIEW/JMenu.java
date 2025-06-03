@@ -6,6 +6,7 @@ import com.lopes.calculadorasolar.MODEL.Simulador;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
 public class JMenu extends javax.swing.JFrame {
@@ -32,7 +33,11 @@ public class JMenu extends javax.swing.JFrame {
 //                atualizarTarifaMenu(); // Atualiza a tarifa quando a janela for ativada
 //            }
 //        });
-
+        Utilitarios.aplicarFiltroNumerico(txtConsumo);
+        Utilitarios.aplicarFiltroNumerico(txtTarifa);
+        Utilitarios.aplicarFiltroNumerico(txtPotencia);
+        Utilitarios.aplicarFiltroNumerico(txtQtd);
+        Utilitarios.aplicarFiltroNumerico(txtIncentivo);
         Utilitarios.manipularImgLogo(lblImgLogo);
         Utilitarios.manipularImgMenu(lblImgMenu);
         Utilitarios.manipularImgConfiguracoes(lblConfiguracoes);
@@ -332,7 +337,10 @@ public class JMenu extends javax.swing.JFrame {
             BD.salvarSimulacao(consumo, tarifa, potencia, quantidade, incentivo, economia);
 
         } catch (NumberFormatException ex) {
-            txtResultado.setText("Erro: Verifique os valores informados.");
+            JOptionPane.showMessageDialog(this,
+                    "Por favor, preencha todos os campos corretamente com valores numéricos.",
+                    "Erro de Entrada",
+                    JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnCalcularActionPerformed
 

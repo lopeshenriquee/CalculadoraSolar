@@ -5,6 +5,8 @@
 package com.lopes.calculadorasolar.CONTROLLER;
 
 import java.awt.Image;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
@@ -12,6 +14,23 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 public class Utilitarios {
+
+    public static void aplicarFiltroNumerico(javax.swing.JTextField campo) {
+        campo.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                char c = e.getKeyChar();
+                if (!Character.isDigit(c) && c != ',' && c != KeyEvent.VK_BACK_SPACE) {
+                    e.consume(); // Ignora o caractere
+                }
+
+                // Impede o ponto final
+                if (c == '.') {
+                    e.consume();
+                }
+            }
+        });
+    }
 
     public static void manipularImgLogo(JLabel label) {
         ImageIcon icon = new ImageIcon("src/main/java/com/lopes/calculadorasolar/view/img/logo.png");
