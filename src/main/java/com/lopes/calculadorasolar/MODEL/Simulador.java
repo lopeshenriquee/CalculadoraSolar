@@ -11,7 +11,7 @@ public class Simulador {
         double economiaMensal = (consumoMensal * tarifaKWh) - (geracaoMensal * tarifaKWh);
 
         // Aplicar incentivo (se houver)
-        double economiaComIncentivo = economiaMensal * (1 + incentivo / 100);
+        double economiaComIncentivo = economiaMensal * (1 - (incentivo / 100));
 
         return economiaComIncentivo;
     }

@@ -34,10 +34,10 @@ public class JMenu extends javax.swing.JFrame {
 //            }
 //        });
         Utilitarios.aplicarFiltroNumerico(txtConsumo);
-        Utilitarios.aplicarFiltroNumerico(txtTarifa);
+//        Utilitarios.aplicarFiltroNumerico(txtTarifa);
         Utilitarios.aplicarFiltroNumerico(txtPotencia);
         Utilitarios.aplicarFiltroNumerico(txtQtd);
-        Utilitarios.aplicarFiltroNumerico(txtIncentivo);
+//        Utilitarios.aplicarFiltroNumerico(txtIncentivo);
         Utilitarios.manipularImgLogo(lblImgLogo);
         Utilitarios.manipularImgMenu(lblImgMenu);
         Utilitarios.manipularImgConfiguracoes(lblConfiguracoes);
@@ -77,7 +77,7 @@ public class JMenu extends javax.swing.JFrame {
         lblData.setText("Data");
 
         lblTitulo.setFont(new java.awt.Font("Segoe UI", 3, 36)); // NOI18N
-        lblTitulo.setText("Descubra quanto irá economizar...");
+        lblTitulo.setText("Descubra quanto irá pagar...");
 
         lblConsumo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblConsumo.setText("Consumo Mensal (kWh):");
@@ -86,7 +86,7 @@ public class JMenu extends javax.swing.JFrame {
         lblTarifa.setText("Tarifa (R$/kWh):");
 
         lblPotencia.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblPotencia.setText("Potência do Painel (kW):");
+        lblPotencia.setText("Potência do Painel (W):");
 
         lblQtd.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblQtd.setText("Quantidade de Painéis:");
@@ -157,7 +157,7 @@ public class JMenu extends javax.swing.JFrame {
         });
 
         lblResultado.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
-        lblResultado.setText("Resultado: ");
+        lblResultado.setText("Valor a Pagar:");
 
         txtIncentivo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
@@ -179,14 +179,15 @@ public class JMenu extends javax.swing.JFrame {
                 .addComponent(btnHistorico, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(315, 315, 315))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(219, 219, 219)
-                        .addComponent(lblTitulo))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(lblData, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblData, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 751, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblTitulo)
+                        .addGap(220, 220, 220)))
                 .addComponent(lblConfiguracoes, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(69, 69, 69)
@@ -209,7 +210,7 @@ public class JMenu extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(390, Short.MAX_VALUE)
+                        .addContainerGap(356, Short.MAX_VALUE)
                         .addComponent(lblResultado)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                     .addGroup(layout.createSequentialGroup()
@@ -227,13 +228,16 @@ public class JMenu extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lblData, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(7, 7, 7)
-                        .addComponent(lblTitulo))
-                    .addComponent(lblConfiguracoes, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(lblData, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblConfiguracoes, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 484, Short.MAX_VALUE)
+                        .addComponent(lblImgLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addComponent(lblTitulo)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(53, 53, 53)
@@ -263,15 +267,12 @@ public class JMenu extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnHistorico, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnCalcular, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtResultado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblResultado))
                         .addGap(19, 19, 19)
-                        .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblImgLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
 
@@ -329,7 +330,7 @@ public class JMenu extends javax.swing.JFrame {
             double tarifa = Double.parseDouble(txtTarifa.getText());
             double potencia = Double.parseDouble(txtPotencia.getText());
             int quantidade = Integer.parseInt(txtQtd.getText());
-            double incentivo = Double.parseDouble(txtIncentivo.getText()) / 100;
+            double incentivo = Double.parseDouble(txtIncentivo.getText());
 
             double economia = Simulador.calcularEconomia(consumo, tarifa, potencia, quantidade, incentivo);
             txtResultado.setText(String.format("%.2f", economia));
